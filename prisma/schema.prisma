@@ -27,6 +27,7 @@ model Barbershop {
   createdAt   DateTime            @default(now())
   updatedAt   DateTime            @updatedAt
   services    BarbershopService[]
+  Rating      Rating[]
 }
 
 model BarbershopService {
@@ -38,7 +39,6 @@ model BarbershopService {
   barbershopId String
   barbershop   Barbershop @relation(fields: [barbershopId], references: [id])
   bookings     Booking[]
-  Rating       Rating[]
 }
 
 model Booking {
@@ -58,6 +58,6 @@ model Rating {
   user                User               @relation(fields: [userId], references: [id])
   barberShopId        String
   Rating              Float
-  BarbershopService   BarbershopService? @relation(fields: [barbershopServiceId], references: [id])
+  Barbershop          Barbershop?        @relation(fields: [barberShopId], references: [id])
   barbershopServiceId String?
 }
