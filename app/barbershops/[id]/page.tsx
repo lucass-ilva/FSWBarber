@@ -1,10 +1,10 @@
 import PhoneItem from "@/app/_components/phone-item"
 import ServiceItem from "@/app/_components/service-item"
-// import SidebarSheet from "@/app/_components/sidebar-sheet"
+import SidebarSheet from "@/app/_components/sidebar-sheet"
 import { Button } from "@/app/_components/ui/button"
-// import { Sheet, SheetTrigger } from "@/app/_components/ui/sheet"
+import { Sheet, SheetTrigger } from "@/app/_components/ui/sheet"
 import { db } from "@/app/_lib/prisma"
-import { ChevronLeftIcon, MapPinIcon, StarIcon } from "lucide-react"
+import { ChevronLeftIcon, MapPinIcon, MenuIcon, StarIcon } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
@@ -52,7 +52,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
           </Link>
         </Button>
 
-        {/* <Sheet>
+        <Sheet>
           <SheetTrigger asChild>
             <Button
               size="icon"
@@ -63,7 +63,7 @@ const BarbershopPage = async ({ params }: BarbershopPageProps) => {
             </Button>
           </SheetTrigger>
           <SidebarSheet />
-        </Sheet> */}
+        </Sheet>
       </div>
 
       {/* TÍTULO */}
