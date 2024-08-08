@@ -7,6 +7,7 @@ import { quickSearchOptions } from "./_constants/search"
 import BookingItem from "./_components/booking-item"
 import Search from "./_components/search"
 import Link from "next/link"
+import HomeUser from "./_components/home-user-item"
 
 const Home = async () => {
   const barbershops = await db.barbershop.findMany({})
@@ -22,7 +23,8 @@ const Home = async () => {
       <Header />
       <div className="p-5">
         {/* TEXTO */}
-        <h2 className="text-xl font-bold">Olá, Lucas!</h2>
+        {/* <h2 className="text-xl font-bold">Bem vindo ao FSW Barber!</h2> */}
+        <HomeUser />
         <p>Quinta-feira, 08 de agosto.</p>
 
         {/* BUSCA */}
