@@ -22,6 +22,8 @@ const SidebarSheet = () => {
   const handleLoginWithGoogleClick = () => signIn("google")
   const handleLogoutClick = () => signOut()
 
+  console.log(data?.user)
+
   return (
     <SheetContent className="overflow-y-auto">
       <SheetHeader>
@@ -53,9 +55,10 @@ const SidebarSheet = () => {
                 <DialogHeader>
                   <DialogTitle>Faça login na plataforma</DialogTitle>
                   <DialogDescription>
-                    Conecte-se usando sua conta do Google
+                    Conecte-se usando sua conta do Google.
                   </DialogDescription>
                 </DialogHeader>
+
                 <Button
                   variant="outline"
                   className="gap-1 font-bold"
@@ -92,19 +95,19 @@ const SidebarSheet = () => {
 
       <div className="flex flex-col gap-2 border-b border-solid py-5">
         {quickSearchOptions.map((option) => (
-          <Button
-            key={option.title}
-            className="justify-start gap-2"
-            variant="ghost"
-          >
-            <Image
-              alt={option.title}
-              src={option.imageUrl}
-              height={18}
-              width={18}
-            />
-            {option.title}
-          </Button>
+          <SheetClose key={option.title} asChild>
+            <Button className="justify-start gap-2" variant="ghost" asChild>
+              <Link href={`/barbershops?service=${option.title}`}>
+                <Image
+                  alt={option.title}
+                  src={option.imageUrl}
+                  height={18}
+                  width={18}
+                />
+                {option.title}
+              </Link>
+            </Button>
+          </SheetClose>
         ))}
       </div>
 
