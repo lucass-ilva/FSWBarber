@@ -22,8 +22,6 @@ const Home = async () => {
       {/* header */}
       <Header />
       <div className="p-5">
-        {/* TEXTO */}
-        {/* <h2 className="text-xl font-bold">Bem vindo ao FSW Barber!</h2> */}
         <HomeUser />
         <p>Quinta-feira, 08 de agosto.</p>
 
