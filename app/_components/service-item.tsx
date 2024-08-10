@@ -20,7 +20,7 @@ import { useSession } from "next-auth/react"
 import { toast } from "sonner"
 import { getBookings } from "../_actions/get-bookings"
 import { Dialog, DialogContent } from "./ui/dialog"
-// import SignInDialog from "./sign-in-dialog"
+import SignInDialog from "./sign-in-dialog"
 
 interface ServiceItemProps {
   service: BarbershopService
@@ -284,7 +284,7 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
         onOpenChange={(open) => setSignInDialogIsOpen(open)}
       >
         <DialogContent className="w-[90%]">
-          {/* <SignInDialog /> */}
+          <SignInDialog />
         </DialogContent>
       </Dialog>
     </>
