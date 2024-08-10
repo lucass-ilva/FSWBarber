@@ -18,7 +18,7 @@ import { format, set } from "date-fns"
 import { createBooking } from "../_actions/create-booking"
 import { useSession } from "next-auth/react"
 import { toast } from "sonner"
-// import { getBookings } from "../_actions/get-bookings"
+import { getBookings } from "../_actions/get-bookings"
 import { Dialog, DialogContent } from "./ui/dialog"
 // import SignInDialog from "./sign-in-dialog"
 
@@ -81,11 +81,11 @@ const ServiceItem = ({ service, barbershop }: ServiceItemProps) => {
   useEffect(() => {
     const fetch = async () => {
       if (!selectedDay) return
-      // const bookings = await getBookings({
-      //   date: selectedDay,
-      //   serviceId: service.id,
-      // })
-      // setDayBookings(bookings)
+      const bookings = await getBookings({
+        date: selectedDay,
+        serviceId: service.id,
+      })
+      setDayBookings(bookings)
     }
     console.log("useEffect")
     fetch()
