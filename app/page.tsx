@@ -10,6 +10,8 @@ import Link from "next/link"
 import HomeUser from "./_components/home-user-item"
 import { getServerSession } from "next-auth"
 import { authOptions } from "./_lib/auth"
+import { format } from "date-fns"
+import { ptBR } from "date-fns/locale"
 
 const Home = async () => {
   const session = await getServerSession(authOptions)
@@ -48,7 +50,15 @@ const Home = async () => {
       <Header />
       <div className="p-5">
         <HomeUser />
-        <p>Quinta-feira, 08 de agosto.</p>
+        <p>
+          <span className="capitalize">
+            {format(new Date(), "EEEE, dd", { locale: ptBR })}
+          </span>
+          <span>&nbsp;de&nbsp;</span>
+          <span className="capitalize">
+            {format(new Date(), "MMMM", { locale: ptBR })}
+          </span>
+        </p>
 
         {/* BUSCA */}
         <div className="mt-6">
